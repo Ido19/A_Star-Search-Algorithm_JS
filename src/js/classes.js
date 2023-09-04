@@ -1,9 +1,12 @@
 // The Node class
 
 class Node {
+  name;
   #neighbors = [];
 
-  constructor() {}
+  constructor(name) {
+    this.name = name;
+  }
 
   get neighbors() {
     return this.#neighbors;
@@ -36,7 +39,7 @@ class Grid {
   constructor(numOfTiles) {
     if (typeof numOfTiles !== 'number' || numOfTiles < 0) numOfTiles = 0;
     for (let i = 0; i < numOfTiles; i++) {
-      this.#tiles.push(String.fromCharCode('A'.charCodeAt(0) + i));
+      this.#tiles.push(new Node(String.fromCharCode('A'.charCodeAt(0) + i)));
     }
     this.#numberOfTiles = numOfTiles;
   }
